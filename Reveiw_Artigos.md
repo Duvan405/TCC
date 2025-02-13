@@ -10,14 +10,11 @@ $para \\ R = 1 \implies \\ F = \frac{P}{(1-P)} $
 $para \\ R \neq 1 \implies \\ F = \frac{1}{R-1}\ln{\frac{1-P}{1-RP}} $
 
 
->[!Note]
+>[!Important]
 >* Propiedades termidinamicas constantes como coeficiente de transferencias de calor, não tem mudança de fase, e uma distribução de velocidade uniforme.
 
 >[!tip]
 >ler
-
->[!Important]
->hola
 
 >[!Warning]
 >hola
