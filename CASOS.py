@@ -1,8 +1,9 @@
 import numpy as np
+import pandas as pd
 from math import exp, factorial, log
 
-nN = 1000
-NTU = np.geomspace(0.0001, 500, nN)
+nN = 500
+NTU = np.geomspace(0.0001, 400, nN)
 
 class C1A:
     def parametro_1A(N_p,N_r,R):
@@ -21,22 +22,14 @@ class C1A:
 
         F = chi / NTU
         return F,P
-    def array_1A(N_p,N_r,R):
-        F=np.zeros((len(R),nN))
-        P=np.zeros((len(R),nN))
-        for i,R in enumerate(R):
-            F[i,:],P[i,:] = C1A.parametro_1A(N_p,N_r,R)
-        return F,P
-    
-    def comp_1A(Np,Nr,C):
-        C = np.array([C])
-        F=np.zeros(nN)
-        P=np.zeros(nN)
-        F,P = C1A.parametro_1A(Np,Nr,C)
-        return F,P
+    def array_1A(N_p,N_r,R_list):
+        df = pd.DataFrame({})
+        for R in R_list:
+            df[f'F[{R}]'],df[f'P[{R}]'] = C1A.parametro_1A(N_p,N_r,R)
+        return df
     
 class C1B1C:
-    def BC(caso, R, NTU, N_p, N_r):
+    def parametro_1B1C(caso, R, NTU, N_p, N_r):
         N = N_p * N_r
         rho = np.exp(-NTU / N)
         lambda_val = R * N_r * (1 - rho)
@@ -71,23 +64,17 @@ class C1B1C:
             chi = (1 / (R - 1)) * np.log((1 - P) / (1 - R * P))
         F = chi / NTU
         return P, F
-    def array_1B1C(Np,Nr,caso,R):
-        P = np.zeros((len(R), nN))
-        F = np.zeros((len(R), nN))
-        for i in range(len(R)):
+    def array_1B1C(Np,Nr,caso,R_list):
+        P = np.zeros((len(R_list), nN))
+        F = np.zeros((len(R_list), nN))
+        df = pd.DataFrame({})
+        for i,R in enumerate(R_list):
             for j in range(nN):
-                P[i, j], F[i, j] = C1B1C.BC(caso, R[i], NTU[j], Np, Nr)
-        return F,P
-    
-    def comp_1B1C(Np,Nr,caso,C):
-        C = np.array([C])
-        F=np.zeros(nN)
-        P=np.zeros(nN)
-        F,P = C1B1C.array_1B1C(Np,Nr,caso,C)
-        return F[0,:],P[0,:]
+                P[i, j], F[i, j] = C1B1C.parametro_1B1C(caso, R_list[i], NTU[j], Np, Nr)
+            df[f'F[{R}]'],df[f'P[{R}]']  = F[i,:] , P[i,:]
+        return df
 
 class C2A:
-
     def factores_2A(Np,Nr,R):
         N = Np * Nr
         rho = np.exp(-NTU / N)
@@ -103,20 +90,12 @@ class C2A:
             P = (1 - ((1 - P_p) / (1 - R * P_p)) ** Np) / (1 - R * ((1 - P_p) / (1 - R * P_p)) ** Np)
             chi = (1 / (R - 1)) * np.log((1 - P) / (1 - R * P))
         F = chi / NTU
-        return F,P,NTU
-    def array_2A(Np,Nr,R):
-        P = np.zeros((len(R), nN))
-        F = np.zeros((len(R), nN))
-        for i,R in enumerate(R):
-            F[i,:],P[i,:],_ = C2A.factores_2A(Np,Nr,R)
         return F,P
-    
-    def comp_2A(Np,Nr,C):
-        C = np.array([C])
-        F=np.zeros(nN)
-        P=np.zeros(nN)
-        F,P = C2A.array_2A(Np,Nr,C)
-        return F[0,:],P[0,:]
+    def array_2A(Np,Nr,R):
+        df = pd.DataFrame({})
+        for R in R:
+            df[f'F[{R}]'],df[f'P[{R}]'] = C2A.factores_2A(Np,Nr,R)
+        return df
     
 class C2B2C:
 
@@ -169,21 +148,11 @@ class C2B2C:
         return F_y,P_x
     
 
-    def array_2B2C(Np,Nr,caso,R):
-        F=np.zeros((len(R),nN))
-        P=np.zeros((len(R),nN))
-        for i,Re in enumerate(R):
-            F[i,:],P[i,:] =  C2B2C.factores_2BC(Np,Nr,Re,caso)
-        return F,P
-    
-    def comp_2B2C(Np,Nr,caso,C):
-        C = np.array([C])
-        F=np.zeros(nN)
-        P=np.zeros(nN)
-        F,P = C2B2C.array_2B2C(Np,Nr,caso,C)
-        return F[0,:],P[0,:]
-    
-    
+    def array_2B2C(Np,Nr,caso,R_list):
+        df= pd.DataFrame({})
+        for R in R_list:
+            df[f'F[{R}]'],df[f'P[{R}]'] = C2B2C.factores_2BC(Np,Nr,R,caso)
+        return df
 class C3A3B3C:
 
     def pignotti_3abc(caso, R, NTU, N_p, N_r):
@@ -296,21 +265,17 @@ class C3A3B3C:
         F = chi / NTU
         return F, P
 
-    def array_3A3B3C( N_p, N_r,caso,R):
-        F = np.zeros((len(R),nN))
-        P = np.zeros((len(R),nN))
-        for j,Re in enumerate(R):
+    def array_3A3B3C( N_p, N_r,caso,R_list):
+        F = np.zeros((len(R_list),nN))
+        P = np.zeros((len(R_list),nN))
+        df = pd.DataFrame({})
+        for j,R  in enumerate(R_list):
             for i,NUT in enumerate(NTU):
-                F[j,i],P[j,i] = C3A3B3C.pignotti_3abc(caso, Re, NUT, N_p, N_r)
-        return F,P
+                F[j,i],P[j,i] = C3A3B3C.pignotti_3abc(caso, R, NUT, N_p, N_r)
+                
+            df[f'F[{R}]'],df[f'P[{R}]']  = F[j,:] , P[j,:]
+        return df
     
-    def comp_3A3B3C(Np,Nr,caso,C):
-        C = np.array([C])
-        F=np.zeros(nN)
-        P=np.zeros(nN)
-        F,P = C3A3B3C.array_3A3B3C(Np,Nr,caso,C)
-        return F[0,:],P[0,:]
-
 
 
 
