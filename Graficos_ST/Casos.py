@@ -262,7 +262,10 @@ def caso_3ABC(caso, R, NTU, N_p, N_r):
     if R == 1:
         chi = P / (1 - P)
     else:
-        chi = (1 / (R - 1)) * log((1 - P) / (1 - R * P))
+        try:
+            chi = (1 / (R - 1)) * log((1 - P) / (1 - R * P))
+        except: 
+            chi = 0
 
     F = chi / NTU
     return F, P
