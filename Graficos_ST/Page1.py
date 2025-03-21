@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 
-def point_plot(dic,slect,k,j):
+def point_plot(dic,slect,k,j,caso):
     for i in slect: 
         fig_E.add_trace(go.Scatter(x=dic[k][i]['NTU'],y=dic[k][i]['EPI'],mode='lines+markers',name=f'{caso}:C={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
 
@@ -15,65 +15,65 @@ def ad_point_epi(slect_caso,slect_c,k):
     for j,caso in enumerate(slect_caso):
         if caso == '1A':
             dic_1A_C = data_EPI(dic_1A)
-            point_plot(dic_1A_C,slect_c,k,j) 
+            point_plot(dic_1A_C,slect_c,k,j,caso) 
     
         if caso == '1B':
  
             dic_1B_C= data_EPI(dic_1B)
-            point_plot(dic_1B_C,slect_c,k,j) 
+            point_plot(dic_1B_C,slect_c,k,j,caso) 
         
         if caso ==  '1C':
            
             dic_1C_C = data_EPI(dic_1C)
-            point_plot(dic_1C_C,slect_c,k,j) 
+            point_plot(dic_1C_C,slect_c,k,j,caso) 
 
         if caso == '2A':
           
             dic_2A_C = data_EPI(dic_2A)
-            point_plot(dic_2A_C,slect_c,k,j) 
+            point_plot(dic_2A_C,slect_c,k,j,caso) 
 
         if caso == '2B':
           
             dic_2B_C= data_EPI(dic_2B)
-            point_plot(dic_2B_C,slect_c,k,j) 
+            point_plot(dic_2B_C,slect_c,k,j,caso) 
 
         if caso == '2C':
     
             dic_2C_C = data_EPI(dic_2C)
-            point_plot(dic_2C_C,slect_c,k,j) 
+            point_plot(dic_2C_C,slect_c,k,j,caso) 
         
         if caso == '3A' :
    
             dic_3A_C = data_EPI(dic_3A)
-            point_plot(dic_3A_C,slect_c,k,j) 
+            point_plot(dic_3A_C,slect_c,k,j,caso) 
         
         if caso == '3B':
   
             dic_3B_C = data_EPI(dic_3B)
-            point_plot(dic_3B_C,slect_c,k,j) 
+            point_plot(dic_3B_C,slect_c,k,j,caso) 
         
         if caso == '3C':
 
             dic_3C_C= data_EPI(dic_3C)
-            point_plot(dic_3C_C,slect_c,k,j) 
+            point_plot(dic_3C_C,slect_c,k,j,caso) 
         
         if caso == '4A' :
    
             dic_4A_C = data_EPI(dic_4A)
-            point_plot(dic_4A_C,slect_c,k,j) 
+            point_plot(dic_4A_C,slect_c,k,j,caso) 
         
         if caso == '4B':
   
             dic_4B_C = data_EPI(dic_4B)
-            point_plot(dic_4B_C,slect_c,k,j) 
+            point_plot(dic_4B_C,slect_c,k,j,caso) 
         
         if caso == '4C':
 
             dic_4C_C= data_EPI(dic_4C)
-            point_plot(dic_4C_C,slect_c,k,j) 
+            point_plot(dic_4C_C,slect_c,k,j,caso) 
         
  
-def point_plot_NTRC(dic,slect,z,rad,j):
+def point_plot_NTRC(dic,slect,z,rad,j,caso):
     for i in slect: 
         fig_NRT.add_trace(go.Scatter(x=dic[z][i]['NTU'],y=dic[z][i][f'{rad}'],mode='lines+markers',name=f'{caso}:C={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
 def ad_point_NTRC(slect_caso,slect,z,rad,tau):
@@ -81,84 +81,84 @@ def ad_point_NTRC(slect_caso,slect,z,rad,tau):
         if caso == '1A':
             dic_1A_C = data_EPI(dic_1A)
             dic_1A_N = data_NRTC(dic_1A_C,tau)
-            point_plot_NTRC(dic_1A_N,slect,z,rad,j)
+            point_plot_NTRC(dic_1A_N,slect,z,rad,j,caso)
             
     
         if caso == '1B':
  
             dic_1B_C= data_EPI(dic_1B)
             dic_1B_N = data_NRTC(dic_1B_C,tau)
-            point_plot_NTRC(dic_1B_N,slect,z,rad,j)
+            point_plot_NTRC(dic_1B_N,slect,z,rad,j,caso)
            
         
         if caso ==  '1C':
            
             dic_1C_C = data_EPI(dic_1C)
             dic_1C_N = data_NRTC(dic_1C_C,tau)
-            point_plot_NTRC(dic_1C_N,slect,z,rad,j)
+            point_plot_NTRC(dic_1C_N,slect,z,rad,j,caso)
            
 
         if caso == '2A':
           
             dic_2A_C = data_EPI(dic_2A)
             dic_2A_N = data_NRTC(dic_2A_C,tau)
-            point_plot_NTRC(dic_2A_N,slect,z,rad,j)
+            point_plot_NTRC(dic_2A_N,slect,z,rad,j,caso)
             
 
         if caso == '2B':
           
             dic_2B_C= data_EPI(dic_2B)
             dic_2B_N = data_NRTC(dic_2B_C,tau)
-            point_plot_NTRC(dic_2B_N,slect,z,rad,j)
+            point_plot_NTRC(dic_2B_N,slect,z,rad,j,caso)
             
 
         if caso == '2C':
     
             dic_2C_C = data_EPI(dic_2C)
             dic_2C_N = data_NRTC(dic_2C_C,tau)
-            point_plot_NTRC(dic_2C_N,slect,z,rad,j)
+            point_plot_NTRC(dic_2C_N,slect,z,rad,j,caso)
             
         
         if caso == '3A' :
    
             dic_3A_C = data_EPI(dic_3A)
             dic_3A_N = data_NRTC(dic_3A_C,tau)
-            point_plot_NTRC(dic_3A_N,slect,z,rad,j)
+            point_plot_NTRC(dic_3A_N,slect,z,rad,j,caso)
              
 
         if caso == '3B':
   
             dic_3B_C = data_EPI(dic_3B)
             dic_3B_N = data_NRTC(dic_3B_C,tau) 
-            point_plot_NTRC(dic_3B_N,slect,z,rad,j)
+            point_plot_NTRC(dic_3B_N,slect,z,rad,j,caso)
         
         if caso == '3C':
 
             dic_3C_C= data_EPI(dic_3C)
             dic_3C_N = data_NRTC(dic_3C_C,tau)
-            point_plot_NTRC(dic_3C_N,slect,z,rad,j)
+            point_plot_NTRC(dic_3C_N,slect,z,rad,j,caso)
 
         if caso == '4A' :
    
             dic_4A_C = data_EPI(dic_4A)
             dic_4A_N = data_NRTC(dic_4A_C,tau)
-            point_plot_NTRC(dic_4A_N,slect,z,rad,j)
+            point_plot_NTRC(dic_4A_N,slect,z,rad,j,caso)
              
 
         if caso == '4B':
   
             dic_4B_C = data_EPI(dic_4B)
             dic_4B_N = data_NRTC(dic_4B_C,tau) 
-            point_plot_NTRC(dic_4B_N,slect,z,rad,j)
+            point_plot_NTRC(dic_4B_N,slect,z,rad,j,caso)
         
         if caso == '4C':
 
             dic_4C_C= data_EPI(dic_4C)
             dic_4C_N = data_NRTC(dic_4C_C,tau)
-            point_plot_NTRC(dic_4C_N,slect,z,rad,j)
+            point_plot_NTRC(dic_4C_N,slect,z,rad,j,caso)
 barra_tempo = st.empty()
 casos_list = ['1A','1B','1C','2A','2B','2C','3A','3B','3C','4A','4B','4C']
-R_list = [0.1,0.2,0.5,0.8,1,2,3,4]
+R_list = [0.1,0.2,0.5,0.8,1.0,2.0,3.0,4.0]
 CF_list = []
 CQ_list = []
 marker_list = ['hash',"square",'diamond','diamond','pentagon','x','hexagon','triangle','star','hourglass','bowtie','hexagon2'] 
@@ -168,7 +168,6 @@ N_r = st.sidebar.select_slider('Número de Tubos `Nr`',options=np.arange(1,21))
 with st.sidebar.expander("Imagems casos Pignotti (1983)"):
     st.image('casos pignatti.PNG')
     
-
 for R in R_list:
     if R <= 1:
         CF_list.append(round(R,3))
@@ -180,7 +179,7 @@ tab1 , tab2 , tab3 =st.tabs(['Factor de Correção','Efectividade','Entropía'])
 barra_tempo.progress(25,"please, Wait")
 fig_F = go.Figure()
 fig_F.update_layout(
-title="Casos Pignotti(1984)",  
+title="Casos Pignotti(1983)",  
 title_font=dict(family="Times New Roman", size=20, color="black"),  
 xaxis=dict(
     title="P [-]", 
@@ -362,6 +361,7 @@ with tab2:
             ad_point_epi(slect_caso,slect_CQ,k)
     with col2_E:
         st.plotly_chart(fig_E,use_container_width=True)
+
 with tab3:
     
     col1_NRT,col2_NRT = st.columns([0.4,0.6])
@@ -372,14 +372,13 @@ with tab3:
         rad2 = col2_aux.radio('',['HERN','Ys'],key ='rad2' )
         config_plot(rad2)
         
-        
-        if rad == 'Cmin = CF':
+        if rad1 == 'Cmin = CF':
             slect_NRTF = st.multiselect('Parâmetro `C*`',CF_list,key='slec_cf_2')
             z=0
             tau = st.slider("Parâmetro `τ`", 0.01, 1.0, 0.01, step = 0.01,key = 'tau')
             ad_point_NTRC(slect_caso,slect_NRTF,z,rad2,tau)
             
-        elif rad == 'Cmin = CQ':
+        elif rad1 == 'Cmin = CQ':
             slect_NRTQ = st.multiselect('Parâmetro `C*`',CQ_list,key='slec_cq_2')
             z=1
             tau = st.slider("Parâmetro `τ`", 0.01, 1.0, 0.01, step = 0.01,key = 'tau')
