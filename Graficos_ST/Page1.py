@@ -3,7 +3,6 @@
 from Casos import  (data_1A,data_1BC,data_2A,data_2BC,data_3ABC,data_EPI,data_NRTC,data_4A,data_4BC) 
 import streamlit as st
 import numpy as np
-import pandas as pd
 import plotly.graph_objects as go
 
 def point_plot(dic,slect,k,j,caso):
@@ -258,18 +257,30 @@ with tab1:
     with col2_F:
         for j,caso in enumerate(slect_caso):
             if caso == '1A':
+<<<<<<< HEAD
+=======
+     
+>>>>>>> fe13b1945d48ca05a3111daad006634c1f8fad43
                 dic_1A = data_1A(N_p,N_r,R_list)
     
                 for i in slect_RF: 
                     fig_F.add_trace(go.Scatter(x=dic_1A[i]['P'],y=dic_1A[i]['F'],mode='lines+markers',name=f'{caso}:R={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
 
             if caso == '1B':
+<<<<<<< HEAD
+=======
+           
+>>>>>>> fe13b1945d48ca05a3111daad006634c1f8fad43
                 dic_1B = data_1BC(N_p,N_r,'1B',R_list)
                 
                 for i in slect_RF: 
                     fig_F.add_trace(go.Scatter(x=dic_1B[i]['P'],y=dic_1B[i]['F'],mode='lines+markers',name=f'{caso}:R={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
             
             if caso ==  '1C':
+<<<<<<< HEAD
+=======
+     
+>>>>>>> fe13b1945d48ca05a3111daad006634c1f8fad43
                 dic_1C = data_1BC(N_p,N_r,'1C',R_list)
                
                 for i in slect_RF: 
