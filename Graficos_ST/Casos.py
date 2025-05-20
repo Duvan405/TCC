@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 from math import exp, factorial, log
 
-nN = 200
-NTU = np.geomspace(0.001, 50, nN)
+nN = 400
+NTU = np.geomspace(0.001, 200, nN)
 
 
 

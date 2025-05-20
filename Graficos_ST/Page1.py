@@ -16,13 +16,11 @@ def ad_point_epi(slect_caso,slect_c,k):
         if caso == '1A':
             dic_1A_C = data_EPI(dic_1A)
             point_plot(dic_1A_C,slect_c,k,j,caso) 
-    
         if caso == '1B':
- 
             dic_1B_C= data_EPI(dic_1B)
             point_plot(dic_1B_C,slect_c,k,j,caso) 
         
-        if caso ==  '1C':
+        if caso == '1C':
            
             dic_1C_C = data_EPI(dic_1C)
             point_plot(dic_1C_C,slect_c,k,j,caso) 
@@ -158,7 +156,7 @@ def ad_point_NTRC(slect_caso,slect,z,rad,tau):
             point_plot_NTRC(dic_4C_N,slect,z,rad,j,caso)
 barra_tempo = st.empty()
 casos_list = ['1A','1B','1C','2A','2B','2C','3A','3B','3C','4A','4B','4C']
-R_list = [0.1,0.2,0.5,0.8,1.0,2.0,3.0,4.0]
+R_list = [0.1 , 0.2, 0.5, 0.8,1.0,2.0,3.0,4.0]
 CF_list = []
 CQ_list = []
 marker_list = ['hash',"square",'diamond','diamond','pentagon','x','hexagon','triangle','star','hourglass','bowtie','hexagon2'] 
@@ -260,21 +258,18 @@ with tab1:
     with col2_F:
         for j,caso in enumerate(slect_caso):
             if caso == '1A':
-                dic_1A = {}
                 dic_1A = data_1A(N_p,N_r,R_list)
     
                 for i in slect_RF: 
                     fig_F.add_trace(go.Scatter(x=dic_1A[i]['P'],y=dic_1A[i]['F'],mode='lines+markers',name=f'{caso}:R={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
 
             if caso == '1B':
-                dic_1B={}
                 dic_1B = data_1BC(N_p,N_r,'1B',R_list)
                 
                 for i in slect_RF: 
                     fig_F.add_trace(go.Scatter(x=dic_1B[i]['P'],y=dic_1B[i]['F'],mode='lines+markers',name=f'{caso}:R={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
             
             if caso ==  '1C':
-                dic_1B={}
                 dic_1C = data_1BC(N_p,N_r,'1C',R_list)
                
                 for i in slect_RF: 
