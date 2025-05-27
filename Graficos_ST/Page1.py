@@ -1,9 +1,9 @@
 
 
 from Casos import  (data_1A,data_1BC,data_2A,data_2BC,data_3ABC,data_EPI,data_NRTC,data_4A,data_4BC) 
-import streamlit as st
+import streamlit as st # type: ignore
 import numpy as np
-import plotly.graph_objects as go
+import plotly.graph_objects as go # type: ignore
 
 def point_plot(dic,slect,k,j,caso):
     for i in slect: 
@@ -70,8 +70,8 @@ def ad_point_epi(slect_caso,slect_c,k):
 
             dic_4C_C= data_EPI(dic_4C)
             point_plot(dic_4C_C,slect_c,k,j,caso) 
-        
- 
+
+         
 def point_plot_NTRC(dic,slect,z,rad,j,caso):
     for i in slect: 
         fig_NRT.add_trace(go.Scatter(x=dic[z][i]['NTU'],y=dic[z][i][f'{rad}'],mode='lines+markers',name=f'{caso}:C={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
@@ -89,35 +89,30 @@ def ad_point_NTRC(slect_caso,slect,z,rad,tau):
             dic_1B_N = data_NRTC(dic_1B_C,tau)
             point_plot_NTRC(dic_1B_N,slect,z,rad,j,caso)
            
-        
         if caso ==  '1C':
            
             dic_1C_C = data_EPI(dic_1C)
             dic_1C_N = data_NRTC(dic_1C_C,tau)
             point_plot_NTRC(dic_1C_N,slect,z,rad,j,caso)
            
-
         if caso == '2A':
           
             dic_2A_C = data_EPI(dic_2A)
             dic_2A_N = data_NRTC(dic_2A_C,tau)
             point_plot_NTRC(dic_2A_N,slect,z,rad,j,caso)
             
-
         if caso == '2B':
           
             dic_2B_C= data_EPI(dic_2B)
             dic_2B_N = data_NRTC(dic_2B_C,tau)
             point_plot_NTRC(dic_2B_N,slect,z,rad,j,caso)
             
-
         if caso == '2C':
     
             dic_2C_C = data_EPI(dic_2C)
             dic_2C_N = data_NRTC(dic_2C_C,tau)
             point_plot_NTRC(dic_2C_N,slect,z,rad,j,caso)
-            
-        
+             
         if caso == '3A' :
    
             dic_3A_C = data_EPI(dic_3A)
@@ -156,6 +151,8 @@ def ad_point_NTRC(slect_caso,slect,z,rad,tau):
             dic_4C_N = data_NRTC(dic_4C_C,tau)
             point_plot_NTRC(dic_4C_N,slect,z,rad,j,caso)
 barra_tempo = st.empty()
+
+
 casos_list = ['1A','1B','1C','2A','2B','2C','3A','3B','3C','4A','4B','4C']
 R_list = [0.1,0.2,0.5,0.8,1.0,2.0,3.0,4.0]
 CF_list = []
@@ -213,7 +210,7 @@ xaxis=dict(
     tickfont=dict(family="Times New Roman", size=14, color="black"))
     ,
     yaxis=dict(
-    title=r"ε   "+"[-]",  
+    title=r"ε       "+"[-]",  
     title_font=dict(family="Times New Roman", size=18, color="black"), 
     showgrid=True, 
     gridcolor="gray", 
@@ -248,16 +245,19 @@ def config_plot(titley):
 fig_NRT.update_xaxes(range=[0,10])
 fig_NRT.update_yaxes(range=[0,1])  
 
-    
 with tab1:
+
     col1_F,col2_F = st.columns([0.4,0.6])
 
 
     with col1_F:
         slect_RF = st.multiselect('Parâmetro `R`',R_list,key='para_r')      
 
+
     with col2_F:
+
         for j,caso in enumerate(slect_caso):
+
             if caso == '1A':
      
                 dic_1A = data_1A(N_p,N_r,R_list)
