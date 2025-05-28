@@ -1,8 +1,8 @@
 import numpy as np
 from math import exp, factorial, log
 
-nN = 700
-NTU = np.geomspace(0.001, 500, nN)
+nN = 250
+NTU = np.geomspace(0.001, 100, nN)
 
 
 
