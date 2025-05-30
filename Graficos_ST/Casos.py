@@ -1,8 +1,8 @@
 import numpy as np
 from math import exp, factorial, log
 
-nN = 250
-NTU = np.geomspace(0.001, 100, nN)
+nN = 200
+NTU = np.geomspace(0.001, 50, nN)
 
 
 
@@ -148,10 +148,10 @@ def caso_2BC(N_p,N_r,R,caso):
     return F,P
 
 
-def data_2BC(Np,Nr,caso,R_list):
+def data_2BC(N_p,N_r,caso,R_list):
     dic= {}
     for R in R_list:
-        F,P = caso_2BC(Np,Nr,R,caso)
+        F,P = caso_2BC(N_p,N_r,R,caso)
         dic[R] = {'F':F,'P':P}
     return dic
 
