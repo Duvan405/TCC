@@ -3,6 +3,9 @@
 from Casos import  (data_1A,data_1BC,data_2A,data_2BC,data_3ABC,data_EPI,data_NRTC,data_4A,data_4BC) 
 import streamlit as st # type: ignore
 import numpy as np
+import requests
+from PIL import Image
+from io import BytesIO
 import plotly.graph_objects as go # type: ignore
 
 st.set_page_config(layout='wide')
