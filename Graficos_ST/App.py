@@ -3,14 +3,10 @@
 from Casos import  (data_1A,data_1BC,data_2A,data_2BC,data_3ABC,data_EPI,data_NRTC,data_4A,data_4BC) 
 import streamlit as st # type: ignore
 import numpy as np
-import requests
-from PIL import Image
-from io import BytesIO
 import plotly.graph_objects as go # type: ignore
 
 st.set_page_config(layout='wide')
-url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Feesc.usp.br%2Finstitucional%2Fidentidade_visual.php&psig=AOvVaw3OFC1Dq2sB2OrXVD2AhxjY&ust=1749944750295000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJCTnavK740DFQAAAAAdAAAAABAE"
-st.logo(url)
+st.logo('LOGO_USP.jpg')
 barra_tempo = st.sidebar.empty()
 barra_tempo.progress(25,"please, Wait")
 def point_plot(dic,slect,k,j,caso):
@@ -167,11 +163,11 @@ slect_caso  = st.sidebar.multiselect('Case Selection',casos_list,key='box_casos'
 N_p = st.sidebar.select_slider('Number of de Passes `Np`',options=np.arange(1,21))
 N_r = st.sidebar.select_slider('Number of Tubes `Nt`',options=np.arange(1,21))
 with st.sidebar.expander("Proposed Arrangements"):
-    st.image('casos.PNG')
+    st.image('casos.jpg')
 
 st.sidebar.markdown('**Developed by:** duvancastro@usp.br')
 st.sidebar.markdown('**Guided by Prof.PhD:** lubencg@sc.usp.br')
-st.sidebar.image('grupo.png',width=400)
+st.sidebar.image('grupo.jpg',width=400)
 
 for R in R_list:
     if R <= 1:
