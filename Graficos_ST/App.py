@@ -6,6 +6,10 @@ import numpy as np
 import plotly.graph_objects as go # type: ignore
 
 st.set_page_config(layout='wide')
+url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Feesc.usp.br%2Finstitucional%2Fidentidade_visual.php&psig=AOvVaw3OFC1Dq2sB2OrXVD2AhxjY&ust=1749944750295000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJCTnavK740DFQAAAAAdAAAAABAE"
+response = requests.get(url)
+log = Image.open(BytesIO(response.content))
+st.logo(log)
 barra_tempo = st.sidebar.empty()
 barra_tempo.progress(25,"please, Wait")
 def point_plot(dic,slect,k,j,caso):
