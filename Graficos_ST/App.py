@@ -6,7 +6,6 @@ import numpy as np
 import plotly.graph_objects as go # type: ignore
 
 st.set_page_config(layout='wide')
-st.logo('LOGO_USP.jpg')
 barra_tempo = st.sidebar.empty()
 barra_tempo.progress(25,"please, Wait")
 def point_plot(dic,slect,k,j,caso):
