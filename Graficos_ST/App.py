@@ -3,7 +3,7 @@
 from Casos import  (data_1A,data_1BC,data_2A,data_2BC,data_3ABC,data_EPI,data_NRTC,data_4A,data_4BC) 
 import streamlit as st # type: ignore
 import numpy as np
-import PIL
+from PIL import Image
 import plotly.graph_objects as go # type: ignore
 
 st.set_page_config(layout='wide')
@@ -163,8 +163,8 @@ slect_caso  = st.sidebar.multiselect('Case Selection',casos_list,key='box_casos'
 N_p = st.sidebar.select_slider('Number of de Passes `Np`',options=np.arange(1,21))
 N_r = st.sidebar.select_slider('Number of Tubes `Nt`',options=np.arange(1,21))
 with st.sidebar.expander("Proposed Arrangements"):
-    st.image('https://www.google.com/imgres?q=uis&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F19%2FUniversidad_Industrial_de_Santander_logo.svg%2F1200px-Universidad_Industrial_de_Santander_logo.svg.png&imgrefurl=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FUniversidad_Industrial_de_Santander&docid=CyD3EsrgfI9LXM&tbnid=0aslKN_tZJ5O8M&vet=12ahUKEwjOj6ua0u-NAxUvGbkGHRutHvMQM3oECBgQAA..i&w=1200&h=588&hcb=2&ved=2ahUKEwjOj6ua0u-NAxUvGbkGHRutHvMQM3oECBgQAA')
-
+    image_1=Image.open('App/casos.jpg')
+    st.image(image_1)
 st.sidebar.markdown('**Developed by:** duvancastro@usp.br')
 st.sidebar.markdown('**Guided by Prof.PhD:** lubencg@sc.usp.br')
 st.sidebar.image('https://www.google.com/imgres?q=uis&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F19%2FUniversidad_Industrial_de_Santander_logo.svg%2F1200px-Universidad_Industrial_de_Santander_logo.svg.png&imgrefurl=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FUniversidad_Industrial_de_Santander&docid=CyD3EsrgfI9LXM&tbnid=0aslKN_tZJ5O8M&vet=12ahUKEwjOj6ua0u-NAxUvGbkGHRutHvMQM3oECBgQAA..i&w=1200&h=588&hcb=2&ved=2ahUKEwjOj6ua0u-NAxUvGbkGHRutHvMQM3oECBgQAA',width=400)
