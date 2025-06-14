@@ -162,11 +162,11 @@ slect_caso  = st.sidebar.multiselect('Case Selection',casos_list,key='box_casos'
 N_p = st.sidebar.select_slider('Number of de Passes `Np`',options=np.arange(1,21))
 N_r = st.sidebar.select_slider('Number of Tubes `Nt`',options=np.arange(1,21))
 with st.sidebar.expander("Proposed Arrangements"):
-    st.image('casos.jpg')
+    st.image('Graficos/casos.jpg')
 
 st.sidebar.markdown('**Developed by:** duvancastro@usp.br')
 st.sidebar.markdown('**Guided by Prof.PhD:** lubencg@sc.usp.br')
-st.sidebar.image('grupo.jpg',width=400)
+st.sidebar.image('Graficos/grupo.jpg',width=400)
 
 for R in R_list:
     if R <= 1:
