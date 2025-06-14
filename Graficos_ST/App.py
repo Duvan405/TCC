@@ -167,8 +167,7 @@ with st.sidebar.expander("Proposed Arrangements"):
 
 st.sidebar.markdown('**Developed by:** duvancastro@usp.br')
 st.sidebar.markdown('**Guided by Prof.PhD:** lubencg@sc.usp.br')
-Im1 = PIL.Image.open('grupo.jpg')
-st.sidebar.image(Im1,width=400)
+st.sidebar.image('https://www.google.com/imgres?q=uis&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F19%2FUniversidad_Industrial_de_Santander_logo.svg%2F1200px-Universidad_Industrial_de_Santander_logo.svg.png&imgrefurl=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FUniversidad_Industrial_de_Santander&docid=CyD3EsrgfI9LXM&tbnid=0aslKN_tZJ5O8M&vet=12ahUKEwjOj6ua0u-NAxUvGbkGHRutHvMQM3oECBgQAA..i&w=1200&h=588&hcb=2&ved=2ahUKEwjOj6ua0u-NAxUvGbkGHRutHvMQM3oECBgQAA',width=400)
 
 for R in R_list:
     if R <= 1:
