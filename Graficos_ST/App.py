@@ -9,6 +9,8 @@ import plotly.graph_objects as go # type: ignore
 st.set_page_config(layout='wide')
 barra_tempo = st.sidebar.empty()
 barra_tempo.progress(25,"please, Wait")
+im3 = Image.open('Graficos_ST/LOGO_USP.jpg')
+st.logo(im3)
 def point_plot(dic,slect,k,j,caso):
     for i in slect: 
         fig_E.add_trace(go.Scatter(x=dic[k][i]['NTU'],y=dic[k][i]['EPI'],mode='lines+markers',name=f'{caso}:C={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
@@ -167,8 +169,8 @@ with st.sidebar.expander("Proposed Arrangements"):
     st.image(image_1)
 st.sidebar.markdown('**Developed by:** duvancastro@usp.br')
 st.sidebar.markdown('**Guided by Prof.PhD:** lubencg@sc.usp.br')
-st.sidebar.image('https://www.google.com/imgres?q=uis&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F19%2FUniversidad_Industrial_de_Santander_logo.svg%2F1200px-Universidad_Industrial_de_Santander_logo.svg.png&imgrefurl=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FUniversidad_Industrial_de_Santander&docid=CyD3EsrgfI9LXM&tbnid=0aslKN_tZJ5O8M&vet=12ahUKEwjOj6ua0u-NAxUvGbkGHRutHvMQM3oECBgQAA..i&w=1200&h=588&hcb=2&ved=2ahUKEwjOj6ua0u-NAxUvGbkGHRutHvMQM3oECBgQAA',width=400)
-
+im2 = Image.open('Graficos_ST/grupo.jpg')
+st.sidebar.image(im2)
 for R in R_list:
     if R <= 1:
         CF_list.append(round(R,3))
