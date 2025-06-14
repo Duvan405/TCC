@@ -3,6 +3,7 @@
 from Casos import  (data_1A,data_1BC,data_2A,data_2BC,data_3ABC,data_EPI,data_NRTC,data_4A,data_4BC) 
 import streamlit as st # type: ignore
 import numpy as np
+import PIL
 import plotly.graph_objects as go # type: ignore
 
 st.set_page_config(layout='wide')
@@ -166,7 +167,8 @@ with st.sidebar.expander("Proposed Arrangements"):
 
 st.sidebar.markdown('**Developed by:** duvancastro@usp.br')
 st.sidebar.markdown('**Guided by Prof.PhD:** lubencg@sc.usp.br')
-st.sidebar.image('Duvan405/TCC/Graficos_ST/grupo.jpg',width=400)
+Im1 = PIL.Image.open('Duvan405/TCC/Graficos_ST/grupo.jpg')
+st.sidebar.image(Im1,width=400)
 
 for R in R_list:
     if R <= 1:
