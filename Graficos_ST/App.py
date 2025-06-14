@@ -163,12 +163,12 @@ slect_caso  = st.sidebar.multiselect('Case Selection',casos_list,key='box_casos'
 N_p = st.sidebar.select_slider('Number of de Passes `Np`',options=np.arange(1,21))
 N_r = st.sidebar.select_slider('Number of Tubes `Nt`',options=np.arange(1,21))
 with st.sidebar.expander("Proposed Arrangements"):
-    Im2 = PIL.Image.open('Duvan405/TCC/Graficos_ST/casos.jpg')
+    Im2 = PIL.Image.open('casos.jpg')
     st.image(Im2)
 
 st.sidebar.markdown('**Developed by:** duvancastro@usp.br')
 st.sidebar.markdown('**Guided by Prof.PhD:** lubencg@sc.usp.br')
-Im1 = PIL.Image.open('Duvan405/TCC/Graficos_ST/grupo.jpg')
+Im1 = PIL.Image.open('grupo.jpg')
 st.sidebar.image(Im1,width=400)
 
 for R in R_list:
