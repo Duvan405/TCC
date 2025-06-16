@@ -29,7 +29,7 @@ def ad_point_epi(slect_caso,slect_c,k):
         
         if caso ==  '1C':
            
-            dic_1C_C = data_EPI(data_1BC(N_p,N_r,'1c',R_list))
+            dic_1C_C = data_EPI(data_1BC(N_p,N_r,'1C',R_list))
             point_plot(dic_1C_C,slect_c,k,j,caso) 
 
         if caso == '2A':
