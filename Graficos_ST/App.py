@@ -216,7 +216,7 @@ xaxis=dict(
     tickfont=dict(family="Times New Roman", size=14, color="black"))
     ,
     yaxis=dict(
-    title=r"ε       "+"[-]",  
+    title=r"Effectiveness "+" ε "+"[-]",  
     title_font=dict(family="Times New Roman", size=18, color="black"), 
     showgrid=True, 
     gridcolor="gray", 
@@ -227,7 +227,24 @@ fig_E.update_xaxes(range=[0,10])
 fig_E.update_yaxes(range=[0,1])  
 
 fig_NRT = go.Figure()
-fig_NRT.update_layout(width=900, height=600)
+
+fig_NRT.update_layout(width=900, height=600,
+xaxis=dict(
+    title="NTU [-]", 
+    title_font=dict(family="Times New Roman", size=18, color="black"),  
+    showgrid=True, 
+    gridcolor="gray", 
+    gridwidth=0.5,  
+    tickfont=dict(family="Times New Roman", size=14, color="black"))
+    ,
+    yaxis=dict(
+    title=r" HERN [-] ",  
+    title_font=dict(family="Times New Roman", size=18, color="black"), 
+    showgrid=True, 
+    gridcolor="gray", 
+    gridwidth=0.5,  
+    tickfont=dict(family="Times New Roman", size=14, color="black"),
+    ),)
 fig_NRT.update_xaxes(range=[0,10])
 fig_NRT.update_yaxes(range=[0,1])
 
