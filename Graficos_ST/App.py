@@ -297,7 +297,7 @@ with tab1:
                     for i in slect_RF: 
                         fig_F.add_trace(go.Scatter(x=dic_4C[i]['P'],y=dic_4C[i]['F'],mode='lines+markers',name=f'{caso}:R={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
             st.session_state['fig_F'] =fig_F
-        container = st.container(border=True)
+        container = st.container(border=True,key='F')
         try:
             container.plotly_chart(st.session_state['fig_F'],use_container_width= True)
         except:
@@ -326,10 +326,11 @@ with tab2:
                 st.session_state['fig_E'] = fig_E
     
     with col2_E:
+        container2 = st.container(border=True,key='E')
         try:
-            st.plotly_chart(st.session_state['fig_E'],use_container_width=True)
+            container2.plotly_chart(st.session_state['fig_E'],use_container_width=True)
         except:    
-            st.plotly_chart(fig_E,use_container_width=True)
+            container2.plotly_chart(fig_E,use_container_width=True)
 
 with tab3:
     
@@ -361,8 +362,9 @@ with tab3:
                 st.session_state['fig_NRT']=fig_NRT
 
     with col2_NRT:
+        container3 = st.container(border=True,key='CNT4R')
         try:
-            st.plotly_chart(st.session_state['fig_NRT'],use_container_width=True)
+            container3 .plotly_chart(st.session_state['fig_NRT'],use_container_width=True)
         except:
-            st.plotly_chart(fig_NRT,use_container_width=True)
+            container3 .plotly_chart(fig_NRT,use_container_width=True)
 barra_tempo.progress(100,"Ready")
