@@ -207,8 +207,6 @@ barra_tempo.progress(50,"please, Wait")
 
 fig_E = go.Figure()
 fig_E.update_layout(width=900, height=600,
-title="Efectividade",  
-title_font=dict(family="Times New Roman", size=20, color="black"),  
 xaxis=dict(
     title="NTU [-]", 
     title_font=dict(family="Times New Roman", size=18, color="black"),  
@@ -298,11 +296,12 @@ with tab1:
                     dic_4C = data_4BC(N_p,N_r,'4C',R_list)
                     for i in slect_RF: 
                         fig_F.add_trace(go.Scatter(x=dic_4C[i]['P'],y=dic_4C[i]['F'],mode='lines+markers',name=f'{caso}:R={i}',marker= dict(symbol=f'{marker_list[j]}-open',size=5)))
-            st.session_state['fig_F'] =fig_F 
+            st.session_state['fig_F'] =fig_F
+        container = st.container(border=True)
         try:
-            st.plotly_chart(st.session_state['fig_F'],use_container_width= True)
+            container.plotly_chart(st.session_state['fig_F'],use_container_width= True)
         except:
-            st.plotly_chart(fig_F,use_container_width= True)
+            container.plotly_chart(fig_F,use_container_width= True)
 
 barra_tempo.progress(75,"Please, Wait")
 with tab2:
