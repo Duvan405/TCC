@@ -135,7 +135,7 @@ def ad_point_NTRC(fig_NRT,N_p,N_r,R_list,slect_caso,slect,z,rad,tau):
     return fig_NRT
 
 def config_plot(titley,fig_NRT):
-    fig_NRT.update_layout(yaxis=dict(title=f"{titley}"+" [-]"  )   
+    fig_NRT.update_layout(yaxis=dict(title=f"{titley}"+" [-]"))   
     return fig_NRT
 
 casos_list = ['1A','1B','1C','2A','2B','2C','3A','3B','3C','4A','4B','4C']
