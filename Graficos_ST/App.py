@@ -138,15 +138,15 @@ def config_plot(titley,fig_NRT):
     fig_NRT.update_layout(
     xaxis=dict(
         title="NTU [-]", 
-        title_font=dict(family="Times New Roman", size=18, color="black"),  
+        title_font=dict(family="Times New Roman", size=20, color="black"),  
         showgrid=True, 
         gridcolor="black", 
         gridwidth=0.5,  
         tickfont=dict(family="Times New Roman", size=18, color="black"))
         ,
         yaxis=dict(
-        title=f"{titley}",  
-        title_font=dict(family="Times New Roman", size=18, color="black"), 
+        title=f"{titley}"+"[-]",  
+        title_font=dict(family="Times New Roman", size=20, color="black"), 
         showgrid=True, 
         gridcolor="black", 
         gridwidth=0.5,  
