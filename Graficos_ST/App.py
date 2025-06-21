@@ -136,8 +136,6 @@ def ad_point_NTRC(fig_NRT,N_p,N_r,R_list,slect_caso,slect,z,rad,tau):
 
 def config_plot(titley,fig_NRT):
     fig_NRT.update_layout(
-    title="Geração de Entropía",  
-    title_font=dict(family="Times New Roman", size=20, color="black"),  
     xaxis=dict(
         title="NTU [-]", 
         title_font=dict(family="Times New Roman", size=18, color="black"),  
