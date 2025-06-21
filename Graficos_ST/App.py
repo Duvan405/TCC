@@ -140,7 +140,7 @@ def config_plot(titley,fig_NRT):
         title="NTU [-]", 
         title_font=dict(family="Times New Roman", size=18, color="black"),  
         showgrid=True, 
-        gridcolor="gray", 
+        gridcolor="black", 
         gridwidth=0.5,  
         tickfont=dict(family="Times New Roman", size=18, color="black"))
         ,
@@ -148,7 +148,7 @@ def config_plot(titley,fig_NRT):
         title=f"{titley}",  
         title_font=dict(family="Times New Roman", size=18, color="black"), 
         showgrid=True, 
-        gridcolor="gray", 
+        gridcolor="black", 
         gridwidth=0.5,  
         tickfont=dict(family="Times New Roman", size=18, color="black"),
         ),)   
