@@ -136,16 +136,8 @@ def ad_point_NTRC(fig_NRT,N_p,N_r,R_list,slect_caso,slect,z,rad,tau):
 
 def config_plot(titley,fig_NRT):
     fig_NRT.update_layout(
-    xaxis=dict(
-        title="NTU [-]", 
-        title_font=dict(family="Times New Roman", size=20, color="black"),  
-        showgrid=True, 
-        gridcolor="black", 
-        gridwidth=0.5,  
-        tickfont=dict(family="Times New Roman", size=18, color="black"))
-        ,
         yaxis=dict(
-        title=f"{titley}"+"[-]",  
+        title=f"{titley}"+" [-]",  
         title_font=dict(family="Times New Roman", size=20, color="black"), 
         showgrid=True, 
         gridcolor="black", 
@@ -181,7 +173,6 @@ tab1 , tab2 , tab3 =st.tabs(['Correction Fator','Effectiveness','Entropy'])
 
 fig_F = go.Figure()
 fig_F.update_layout(
-
 xaxis=dict(
     title="Effectiveness of temperatures P [-]", 
     title_font=dict(family="Times New Roman", size=20, color="black"),  
@@ -224,8 +215,8 @@ xaxis=dict(
 fig_E.update_xaxes(range=[0,10])
 fig_E.update_yaxes(range=[0,1])  
 
-fig_NRT = go.Figure()
 
+fig_NRT = go.Figure()
 fig_NRT.update_layout(width=900, height=600,
 xaxis=dict(
     title="NTU [-]", 
